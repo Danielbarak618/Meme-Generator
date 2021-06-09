@@ -38,14 +38,6 @@ function getImgsForDisplay() {
   return imgs;
 }
 
-function selectImg(elImg) {
-  var imgId = elImg.id;
-  var img = findImgById(imgId);
-  gMeme.selectedImgId = imgId;
-  drawImg();
-  console.log(gMeme.selectedImgId);
-}
-
 function findImgById(imgId) {
   for (var i = 0; i < gImgs.length; i++) {
     var img = gImgs[i];
@@ -69,13 +61,28 @@ function getText(txt) {
 }
 
 function getFontSize() {
-  return gMeme.lines[0].size;
+  return gMeme.lines[gMeme.selectedLineIdx].size;
 }
 
 function getCurrPos() {
-  return gMeme.lines[0].posY;
+  return gMeme.lines[gMeme.selectedLineIdx].posY;
 }
 
 function getLinePos() {
   return gMeme.selectedLineIdx;
+}
+
+function increasePos() {
+  gMeme.lines[gMeme.selectedLineIdx].posY += 10;
+}
+
+function decreasePos() {
+  gMeme.lines[gMeme.selectedLineIdx].posY -= 10;
+}
+
+function switchLine() {
+  gMeme.selectedLineIdx++;
+  if (gMeme.selectedLineIdx > gMeme.lines.length) {
+    gMeme.selectedLineIdx = 0;
+  }
 }
