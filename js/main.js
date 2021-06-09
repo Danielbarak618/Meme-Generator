@@ -5,6 +5,11 @@ var text_title = 'ALALALA';
 var gElCanvas;
 var gCtx;
 var gImg = getImg();
+var fontSize = getFontSize();
+var currPos = getCurrPos();
+var currLine = getLinePos();
+console.log(fontSize);
+console.log(currLine);
 
 function onInit() {
   gElCanvas = document.querySelector('.my-canvas');
@@ -27,18 +32,37 @@ function drawImg() {
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
     var lines = getLines();
-    console.log(lines[0].txt);
-    drawText(lines[0].txt, 100, 100);
+    lines.forEach(function (line) {
+      drawText(line.txt, line.posY);
+    });
   };
 }
 
-function drawText(text, x, y) {
-  console.log(text);
+function drawText(text, y) {
   gCtx.lineWidth = 2;
   gCtx.strokeStyle = 'black';
   gCtx.fillStyle = 'white';
-  gCtx.font = '40px Impact';
+  gCtx.font = `${fontSize}px Impact`;
   gCtx.textAlign = 'center';
-  gCtx.fillText(text, x, y);
-  gCtx.strokeText(text, x, y);
+  gCtx.fillText(text, gElCanvas.width / 2, y);
+  gCtx.strokeText(text, gElCanvas.width / 2, y);
+}
+
+function onIncreaseFont() {
+  fontSize += 5;
+  drawImg();
+}
+function onDecreaseFont() {
+  fontSize -= 5;
+  drawImg();
+}
+
+function onIncreasePos() {
+  currPos -= 10;
+  drawImg();
+}
+
+function ondecreasePos() {
+  currPos += 10;
+  drawImg();
 }

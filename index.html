@@ -10,7 +10,11 @@
 </head>
 
 <body onload="onInit()">
-
+    <button class="switch-btn" onclick="onSwitchLine()">⇅</button>
+    <button class="up-btn" onclick="onIncreasePos()">⬆</button>
+    <button class="down-btn" onclick="ondecreasePos()">⬇</button>
+    <button class="increase-btn" onclick="onIncreaseFont()">⤊</button>
+    <button class="decrease-btn" onclick="onDecreaseFont()">⟱</button>
 
     <input type="text" name='meme-text' placeholder="Add text please" oninput="getText(this.value)">
 

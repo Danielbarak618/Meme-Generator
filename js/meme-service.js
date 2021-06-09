@@ -8,9 +8,17 @@ var gMeme = {
   lines: [
     {
       txt: '',
-      size: 20,
+      size: 40,
       align: 'left',
       color: 'white',
+      posY: 100,
+    },
+    {
+      txt: '',
+      size: 40,
+      align: 'left',
+      color: 'white',
+      posY: 380,
     },
   ],
 };
@@ -58,4 +66,16 @@ function getLines() {
 function getText(txt) {
   gMeme.lines[gMeme.selectedLineIdx].txt = txt;
   drawImg();
+}
+
+function getFontSize() {
+  return gMeme.lines[0].size;
+}
+
+function getCurrPos() {
+  return gMeme.lines[0].posY;
+}
+
+function getLinePos() {
+  return gMeme.selectedLineIdx;
 }
