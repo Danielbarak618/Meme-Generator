@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Impact;
+  src: url(/Fonts/impact.ttf);
+}
+
+body {
+  margin: 0;
+}
+
+canvas {
+  border: 1px solid black;
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery-imgs {
+  height: 500px;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
