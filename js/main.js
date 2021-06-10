@@ -5,7 +5,7 @@ var text_title = 'ALALALA';
 var gElCanvas;
 var gCtx;
 var gImg = getImg();
-var currPos = 100;
+var currPos = 50;
 
 var currLine = getLinePos();
 
@@ -32,18 +32,25 @@ function drawImg() {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
     var lines = getLines();
     lines.forEach(function (line, idx) {
-      drawText(line.txt, line.posY, line.size, line.align, line.color);
+      drawText(
+        line.txt,
+        line.posY,
+        line.size,
+        line.align,
+        line.color,
+        line.font
+      );
     });
   };
 }
 
-function drawText(text, y, size, align, color) {
+function drawText(text, y, size, align, color, font) {
   // currPos = getCurrPos();
   var posX = gElCanvas.width / 2;
   gCtx.lineWidth = 2;
   gCtx.strokeStyle = 'black';
   gCtx.fillStyle = `${color}`;
-  gCtx.font = `${size}px Impact`;
+  gCtx.font = `${size}px ${font}`;
   gCtx.textAlign = `${align}`;
   switch (align) {
     case 'left':
@@ -59,6 +66,12 @@ function drawText(text, y, size, align, color) {
   console.log(gCtx.textAlign);
   gCtx.fillText(text, posX, y);
   gCtx.strokeText(text, posX, y);
+}
+
+function onAddLine() {
+  currPos += 15;
+  addLine(currPos);
+  drawImg();
 }
 
 function onAlignLeft() {
@@ -117,4 +130,20 @@ function hideAndShow() {
 function initPage() {
   document.querySelector('.editor-container').style.display = 'none';
   document.querySelector('.gallery-imgs').style.display = 'block';
+}
+
+function downloadCanvas(elLink) {
+  const data = gElCanvas.toDataURL();
+  elLink.href = data;
+  elLink.download = 'my-img.jpg';
+}
+
+function onDeleteLine() {
+  deleteLine();
+  drawImg();
+}
+
+function onSetFont(font) {
+  changeFont(font);
+  drawImg();
 }

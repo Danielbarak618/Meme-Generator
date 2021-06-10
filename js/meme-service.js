@@ -1,6 +1,7 @@
 'use strict';
 
 const KEY = 'currImg';
+var gFontFilter = 'Impact';
 
 var gMeme = {
   selectedImgId: 1,
@@ -9,16 +10,18 @@ var gMeme = {
     {
       txt: '',
       size: 40,
-      align: 'left',
+      align: 'center',
       color: 'white',
       posY: 50,
+      font: gFontFilter,
     },
     {
       txt: '',
       size: 40,
-      align: 'left',
+      align: 'center',
       color: 'white',
-      posY: 200,
+      posY: 270,
+      font: gFontFilter,
     },
   ],
 };
@@ -60,6 +63,22 @@ function findImgById(imgId) {
       return img;
     }
   }
+}
+
+function addLine(posY) {
+  var line = {
+    txt: '',
+    size: 40,
+    align: 'center',
+    color: 'white',
+    posY,
+    font: gFontFilter,
+  };
+
+  gMeme.lines.push(line);
+  gMeme.selectedLineIdx++;
+  console.log(gMeme.lines);
+  drawImg();
 }
 
 function getImg() {
@@ -110,6 +129,7 @@ function decreasePos() {
 function switchLine() {
   const idx = gMeme.selectedLineIdx;
   gMeme.selectedLineIdx = idx === 0 ? 1 : 0;
+
   const elInput = document.querySelector('input[name="meme-text"]');
   elInput.value = gMeme.lines[gMeme.selectedLineIdx].txt;
 }
@@ -122,4 +142,24 @@ function alignCenter() {
 }
 function alignRight() {
   gMeme.lines[gMeme.selectedLineIdx].align = 'right';
+}
+
+function deleteLine() {
+  const idx = gMeme.selectedLineIdx;
+  if (idx === 0) return;
+  gMeme.lines.splice(idx, 1);
+}
+
+function changeFont(val) {
+  const idx = gMeme.selectedLineIdx;
+  if (val === 'Arial') {
+    gMeme.lines[idx].font = `${val}`;
+    gFontFilter = val;
+  }
+  if (val === 'Impact') {
+    gMeme.lines[idx].font = `${val}`;
+    gFontFilter = val;
+  }
+  console.log(gMeme.lines);
+  // setFontFilter(val);
 }

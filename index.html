@@ -25,21 +25,34 @@
         <div class="edit-controls">
             <input type="text" name='meme-text' class="text-box" placeholder="Add text please"
                 oninput="getText(this.value)">
-
+            <select onchange="onSetFont(this.value)">
+                <option value="Impact">Impact</option>
+                <option value="Arial">Arial</option>
+            </select>
             <input type="color" name="text-color" oninput="getColor(this.value)">
             <div class="first-btns">
-                <button class="switch-btn" onclick="onSwitchLine()">⇅</button>
-                <button class="up-btn" onclick="onIncreasePos()">⬆</button>
-                <button class="down-btn" onclick="ondecreasePos()">⬇</button>
+                <button class='func-btn' onclick="onDeleteLine()"><img src="/ICONS/trash.png"></button>
+                <button class='func-btn' onclick="onAddLine()"><img src="/ICONS/add.png"></button>
+                <button class="func-btn" onclick="onSwitchLine()"><img
+                        src="/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                <button class="func-btn" onclick="onIncreasePos()">⬆</button>
+                <button class="func-btn" onclick="ondecreasePos()">⬇</button>
             </div>
             <div class="second-btns">
-                <button class="increase-btn" onclick="onIncreaseFont()">+A</button>
-                <button class="decrease-btn" onclick="onDecreaseFont()">-A</button>
-                <button class="align-left-btn" onclick="onAlignLeft()">Left</button>
-                <button class="align-center-btn" onclick="onAlignCenter()">Center</button>
-                <button class="align-right-btn" onclick="onAlignRight()">Right</button>
-            </div>
 
+                <button class="func-btn" onclick="onIncreaseFont()"><img src="/ICONS/increase font - icon.png"></button>
+                <button class="func-btn" onclick="onDecreaseFont()"><img src="/ICONS/decrease font - icon.png"></button>
+                <button class="func-btn" onclick="onAlignLeft()"><img src="/ICONS/align-to-left.png"></button>
+                <button class="func-btn" onclick="onAlignCenter()"><img src="/ICONS/center-text-alignment.png"></button>
+                <button class="func-btn" onclick="onAlignRight()"><img src="/ICONS/align-to-right.png"></button>
+            </div>
+            <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                <input name="img" id="imgData" type="hidden" />
+                <button class="btn-publish" type="submit">Publish</button>
+                <a href="#" class="btn-download" onclick="downloadCanvas(this)" download="my-img.jpg">Download
+                </a>
+                <div class="share-container"></div>
+            </form>
         </div>
 
 
@@ -50,7 +63,13 @@
     <div class="gallery-imgs">
 
     </div>
-
+    <footer class="main-footer flex justify-content align-center">
+        <div class="footer"></div>
+        <p><span class="footer-logo">Memegene<br>
+                <span class='text-reversed'>All rights reserved</p>
+        </div>
+    </footer>
+    <script src="js/upload-service.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/main.js"></script>
 </body>
