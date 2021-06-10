@@ -13,8 +13,8 @@
     <header class='main-header  flex space-between align-center'>
         <div class="logo">Meme generator</div>
         <ul class="main-nav nav-header clean-list flex">
-            <li><a class="nav-link href=" #">About</a></li>
-            <li><a class="nav-link href=" #">Gallery</a></li>
+            <li><a class="nav-link" href="#">About</a></li>
+            <li><a class="nav-link" href="#" onclick="initPage()">Gallery</a></li>
 
         </ul>
     </header>
@@ -31,20 +31,21 @@
             </select>
             <input type="color" name="text-color" oninput="getColor(this.value)">
             <div class="first-btns">
-                <button class='func-btn' onclick="onDeleteLine()"><img src="/ICONS/trash.png"></button>
-                <button class='func-btn' onclick="onAddLine()"><img src="/ICONS/add.png"></button>
+                <button class='func-btn' onclick="onDeleteLine()"><img class="trash-icon"
+                        src="ICONS/trash.png"></button>
+                <button class='func-btn' onclick="onAddLine()"><img src="ICONS/add.png"></button>
                 <button class="func-btn" onclick="onSwitchLine()"><img
-                        src="/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                        src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png"></button>
                 <button class="func-btn" onclick="onIncreasePos()">⬆</button>
                 <button class="func-btn" onclick="ondecreasePos()">⬇</button>
             </div>
             <div class="second-btns">
 
-                <button class="func-btn" onclick="onIncreaseFont()"><img src="/ICONS/increase font - icon.png"></button>
-                <button class="func-btn" onclick="onDecreaseFont()"><img src="/ICONS/decrease font - icon.png"></button>
-                <button class="func-btn" onclick="onAlignLeft()"><img src="/ICONS/align-to-left.png"></button>
-                <button class="func-btn" onclick="onAlignCenter()"><img src="/ICONS/center-text-alignment.png"></button>
-                <button class="func-btn" onclick="onAlignRight()"><img src="/ICONS/align-to-right.png"></button>
+                <button class="func-btn" onclick="onIncreaseFont()"><img src="ICONS/increase font - icon.png"></button>
+                <button class="func-btn" onclick="onDecreaseFont()"><img src="ICONS/decrease font - icon.png"></button>
+                <button class="func-btn" onclick="onAlignLeft()"><img src="ICONS/align-to-left.png"></button>
+                <button class="func-btn" onclick="onAlignCenter()"><img src="ICONS/center-text-alignment.png"></button>
+                <button class="func-btn" onclick="onAlignRight()"><img src="ICONS/align-to-right.png"></button>
             </div>
             <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                 <input name="img" id="imgData" type="hidden" />

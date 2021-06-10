@@ -129,7 +129,7 @@ function hideAndShow() {
 
 function initPage() {
   document.querySelector('.editor-container').style.display = 'none';
-  document.querySelector('.gallery-imgs').style.display = 'block';
+  document.querySelector('.gallery-imgs').style.display = 'grid';
 }
 
 function downloadCanvas(elLink) {
