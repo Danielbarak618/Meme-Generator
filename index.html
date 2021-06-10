@@ -10,21 +10,37 @@
 </head>
 
 <body onload="onInit()">
-    <div class="editor-container">
-        <button class="switch-btn" onclick="onSwitchLine()">⇅</button>
-        <button class="up-btn" onclick="onIncreasePos()">⬆</button>
-        <button class="down-btn" onclick="ondecreasePos()">⬇</button>
-        <button class="increase-btn" onclick="onIncreaseFont()">⤊</button>
-        <button class="decrease-btn" onclick="onDecreaseFont()">⟱</button>
+    <header class='main-header  flex space-between align-center'>
+        <div class="logo">Meme generator</div>
+        <ul class="main-nav nav-header clean-list flex">
+            <li><a class="nav-link href=" #">About</a></li>
+            <li><a class="nav-link href=" #">Gallery</a></li>
 
-        <input type="text" name='meme-text' placeholder="Add text please" oninput="getText(this.value)">
-
+        </ul>
+    </header>
+    <div class="editor-container flex">
         <div class="canvas-container">
-            <canvas class="my-canvas" height="450" width="450"></canvas>
+            <canvas class="my-canvas" height="300" width="300"></canvas>
+        </div>
+        <div class="edit-controls">
+            <input type="text" name='meme-text' class="text-box" placeholder="Add text please"
+                oninput="getText(this.value)">
+            <div class="first-btns">
+                <button class="switch-btn" onclick="onSwitchLine()">⇅</button>
+                <button class="up-btn" onclick="onIncreasePos()">⬆</button>
+                <button class="down-btn" onclick="ondecreasePos()">⬇</button>
+            </div>
+            <button class="increase-btn" onclick="onIncreaseFont()">+</button>
+            <button class="decrease-btn" onclick="onDecreaseFont()">-</button>
 
 
         </div>
+
+
+
     </div>
+
+
     <div class="gallery-imgs">
 
     </div>

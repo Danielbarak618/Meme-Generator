@@ -72,6 +72,7 @@ function ondecreasePos() {
 
 function onSwitchLine() {
   switchLine();
+  drawImg();
 }
 
 function selectImg(elImg) {
@@ -84,7 +85,7 @@ function selectImg(elImg) {
 }
 
 function hideAndShow() {
-  document.querySelector('.editor-container').style.display = 'block';
+  document.querySelector('.editor-container').style.display = 'flex';
   document.querySelector('.gallery-imgs').style.display = 'none';
 }
 
