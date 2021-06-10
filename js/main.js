@@ -5,12 +5,9 @@ var text_title = 'ALALALA';
 var gElCanvas;
 var gCtx;
 var gImg = getImg();
-var fontSize = getFontSize();
 var currPos = 100;
 
 var currLine = getLinePos();
-console.log(fontSize);
-console.log(currLine);
 
 function onInit() {
   gElCanvas = document.querySelector('.my-canvas');
@@ -35,28 +32,56 @@ function drawImg() {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
     var lines = getLines();
     lines.forEach(function (line, idx) {
-      drawText(line.txt, line.posY);
+      drawText(line.txt, line.posY, line.size, line.align, line.color);
     });
   };
 }
 
-function drawText(text, y) {
-  currPos = getCurrPos();
+function drawText(text, y, size, align, color) {
+  // currPos = getCurrPos();
+  var posX = gElCanvas.width / 2;
   gCtx.lineWidth = 2;
   gCtx.strokeStyle = 'black';
-  gCtx.fillStyle = 'white';
-  gCtx.font = `${fontSize}px Impact`;
-  gCtx.textAlign = 'center';
-  gCtx.fillText(text, gElCanvas.width / 2, y);
-  gCtx.strokeText(text, gElCanvas.width / 2, y);
+  gCtx.fillStyle = `${color}`;
+  gCtx.font = `${size}px Impact`;
+  gCtx.textAlign = `${align}`;
+  switch (align) {
+    case 'left':
+      posX -= 140;
+      break;
+    case 'center':
+      posX = gElCanvas.width / 2;
+      break;
+    case 'right':
+      posX += 140;
+      break;
+  }
+  console.log(gCtx.textAlign);
+  gCtx.fillText(text, posX, y);
+  gCtx.strokeText(text, posX, y);
+}
+
+function onAlignLeft() {
+  alignLeft();
+  drawImg();
+}
+
+function onAlignCenter() {
+  alignCenter();
+  drawImg();
+}
+
+function onAlignRight() {
+  alignRight();
+  drawImg();
 }
 
 function onIncreaseFont() {
-  fontSize += 5;
+  increaseFont();
   drawImg();
 }
 function onDecreaseFont() {
-  fontSize -= 5;
+  decreaseFont();
   drawImg();
 }
 

@@ -11,7 +11,7 @@ var gMeme = {
       size: 40,
       align: 'left',
       color: 'white',
-      posY: 100,
+      posY: 50,
     },
     {
       txt: '',
@@ -75,6 +75,11 @@ function getText(txt) {
   drawImg();
 }
 
+function getColor(color) {
+  gMeme.lines[gMeme.selectedLineIdx].color = color;
+  drawImg();
+}
+
 function getFontSize() {
   return gMeme.lines[gMeme.selectedLineIdx].size;
 }
@@ -87,21 +92,34 @@ function getLinePos() {
   return gMeme.selectedLineIdx;
 }
 
-function increasePos() {
-  gMeme.lines[gMeme.selectedLineIdx].posY += 10;
+function increaseFont() {
+  gMeme.lines[gMeme.selectedLineIdx].size += 5;
+}
+function decreaseFont() {
+  gMeme.lines[gMeme.selectedLineIdx].size -= 5;
 }
 
-function decreasePos() {
+function increasePos() {
   gMeme.lines[gMeme.selectedLineIdx].posY -= 10;
 }
 
-// function moveLineUp(){
-//   gMeme.lines[]
-// }
+function decreasePos() {
+  gMeme.lines[gMeme.selectedLineIdx].posY += 10;
+}
 
 function switchLine() {
   const idx = gMeme.selectedLineIdx;
   gMeme.selectedLineIdx = idx === 0 ? 1 : 0;
   const elInput = document.querySelector('input[name="meme-text"]');
   elInput.value = gMeme.lines[gMeme.selectedLineIdx].txt;
+}
+
+function alignLeft() {
+  gMeme.lines[gMeme.selectedLineIdx].align = 'left';
+}
+function alignCenter() {
+  gMeme.lines[gMeme.selectedLineIdx].align = 'center';
+}
+function alignRight() {
+  gMeme.lines[gMeme.selectedLineIdx].align = 'right';
 }

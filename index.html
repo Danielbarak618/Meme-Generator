@@ -25,14 +25,20 @@
         <div class="edit-controls">
             <input type="text" name='meme-text' class="text-box" placeholder="Add text please"
                 oninput="getText(this.value)">
+
+            <input type="color" name="text-color" oninput="getColor(this.value)">
             <div class="first-btns">
                 <button class="switch-btn" onclick="onSwitchLine()">⇅</button>
                 <button class="up-btn" onclick="onIncreasePos()">⬆</button>
                 <button class="down-btn" onclick="ondecreasePos()">⬇</button>
             </div>
-            <button class="increase-btn" onclick="onIncreaseFont()">+</button>
-            <button class="decrease-btn" onclick="onDecreaseFont()">-</button>
-
+            <div class="second-btns">
+                <button class="increase-btn" onclick="onIncreaseFont()">+A</button>
+                <button class="decrease-btn" onclick="onDecreaseFont()">-A</button>
+                <button class="align-left-btn" onclick="onAlignLeft()">Left</button>
+                <button class="align-center-btn" onclick="onAlignCenter()">Center</button>
+                <button class="align-right-btn" onclick="onAlignRight()">Right</button>
+            </div>
 
         </div>
 
