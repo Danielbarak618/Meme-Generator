@@ -128,7 +128,9 @@ function decreasePos() {
 
 function switchLine() {
   const idx = gMeme.selectedLineIdx;
-  gMeme.selectedLineIdx = idx === 0 ? 1 : 0;
+  if (idx >= gMeme.lines.length - 1) gMeme.selectedLineIdx = 0;
+  else gMeme.selectedLineIdx++;
+  // gMeme.selectedLineIdx = idx === 0 ? 1 : 0;
 
   const elInput = document.querySelector('input[name="meme-text"]');
   elInput.value = gMeme.lines[gMeme.selectedLineIdx].txt;
@@ -146,7 +148,7 @@ function alignRight() {
 
 function deleteLine() {
   const idx = gMeme.selectedLineIdx;
-  if (idx === 0) return;
+  if (gMeme.lines.length === 0) return;
   gMeme.lines.splice(idx, 1);
 }
 

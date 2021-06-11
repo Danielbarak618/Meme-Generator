@@ -38,14 +38,16 @@ function drawImg() {
         line.size,
         line.align,
         line.color,
-        line.font
+        line.font,
+        idx
       );
     });
   };
 }
 
-function drawText(text, y, size, align, color, font) {
+function drawText(text, y, size, align, color, font, idx) {
   // currPos = getCurrPos();
+  const selectedLine = getLinePos();
   var posX = gElCanvas.width / 2;
   gCtx.lineWidth = 2;
   gCtx.strokeStyle = 'black';
@@ -66,10 +68,13 @@ function drawText(text, y, size, align, color, font) {
   console.log(gCtx.textAlign);
   gCtx.fillText(text, posX, y);
   gCtx.strokeText(text, posX, y);
+  if (selectedLine === idx) {
+    gCtx.strokeRect(30, y - size - 10, gElCanvas.width - 60, 30 + size);
+  }
 }
 
 function onAddLine() {
-  currPos += 15;
+  currPos = gElCanvas.width / 2;
   addLine(currPos);
   drawImg();
 }
