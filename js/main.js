@@ -13,14 +13,18 @@ function onInit() {
   gElCanvas = document.querySelector('.my-canvas');
   gCtx = gElCanvas.getContext('2d');
   drawImg();
+  setFilter('');
   initImages();
   initPage();
 }
 
-function renderGallery(imgs) {
+function renderGallery() {
+  var imgs = getImg();
   var strHtml = '';
   imgs.forEach(function (img, idx) {
-    strHtml += `<img src="${img.url}" id="${img.id}" class="img-item" onclick="selectImg(this)"</img>`;
+    if (img.passedSearch) {
+      strHtml += `<img src="${img.url}" id="${img.id}" class="img-item" onclick="selectImg(this)"</img>`;
+    }
   });
   document.querySelector('.gallery-imgs').innerHTML = strHtml;
 }
@@ -43,6 +47,39 @@ function drawImg() {
       );
     });
   };
+}
+
+function onImgInput(ev) {
+  loadImageFromInput(ev, drawImg);
+}
+
+function loadImageFromInput(ev, onImageReady) {
+  document.querySelector('.share-container').innerHTML = '';
+  var reader = new FileReader();
+
+  reader.onload = function (event) {
+    console.log('event:', event);
+    var img = new Image();
+    img.onload = onImageReady.bind(null, img);
+    img.onload = () => {
+      gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
+      var lines = getLines();
+      lines.forEach(function (line, idx) {
+        drawText(
+          line.txt,
+          line.posY,
+          line.size,
+          line.align,
+          line.color,
+          line.font,
+          idx
+        );
+      });
+    };
+    img.src = event.target.result;
+    gImg = img;
+  };
+  reader.readAsDataURL(ev.target.files[0]);
 }
 
 function drawText(text, y, size, align, color, font, idx) {
@@ -69,7 +106,7 @@ function drawText(text, y, size, align, color, font, idx) {
   gCtx.fillText(text, posX, y);
   gCtx.strokeText(text, posX, y);
   if (selectedLine === idx) {
-    gCtx.strokeRect(30, y - size - 10, gElCanvas.width - 60, 30 + size);
+    gCtx.strokeRect(30, y - size - 5, gElCanvas.width - 40, 30 + size);
   }
 }
 
@@ -151,4 +188,9 @@ function onDeleteLine() {
 function onSetFont(font) {
   changeFont(font);
   drawImg();
+}
+
+function onSetFilter(filter) {
+  setFilter(filter);
+  renderGallery();
 }

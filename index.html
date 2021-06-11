@@ -17,6 +17,7 @@
             <li><a class="nav-link" href="#" onclick="initPage()">Gallery</a></li>
 
         </ul>
+
     </header>
     <div class="editor-container flex">
         <div class="canvas-container">
@@ -50,6 +51,7 @@
                 <button class="func-btn" onclick="onAlignCenter()"><img src="ICONS/center-text-alignment.png"></button>
                 <button class="func-btn" onclick="onAlignRight()"><img src="ICONS/align-to-right.png"></button>
             </div>
+            <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
             <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                 <input name="img" id="imgData" type="hidden" />
                 <button class="btn-publish" type="submit">Publish</button>
@@ -63,10 +65,15 @@
 
     </div>
 
+    <input type="search" name="search" placeholder="Search" oninput="onSetFilter(this.value)" autocomplete="off" />
+
+
 
     <div class="gallery-imgs">
 
     </div>
+
+
     <footer class="main-footer flex justify-content align-center">
         <div class="footer"></div>
         <p><span class="footer-logo">Memegene<br>

@@ -27,34 +27,34 @@ var gMeme = {
 };
 
 var gImgs = [
-  { id: 1, url: 'meme-img/1.jpg', keywords: ['happy'] },
-  { id: 2, url: 'meme-img/2.jpg', keywords: ['happy'] },
-  { id: 3, url: 'meme-img/3.jpg', keywords: ['happy'] },
-  { id: 4, url: 'meme-img/4.jpg', keywords: ['happy'] },
-  { id: 5, url: 'meme-img/5.jpg', keywords: ['happy'] },
-  { id: 6, url: 'meme-img/6.jpg', keywords: ['happy'] },
-  { id: 7, url: 'meme-img/7.jpg', keywords: ['happy'] },
-  { id: 8, url: 'meme-img/8.jpg', keywords: ['happy'] },
-  { id: 9, url: 'meme-img/9.jpg', keywords: ['happy'] },
-  { id: 10, url: 'meme-img/10.jpg', keywords: ['happy'] },
-  { id: 11, url: 'meme-img/11.jpg', keywords: ['happy'] },
-  { id: 12, url: 'meme-img/12.jpg', keywords: ['happy'] },
-  { id: 13, url: 'meme-img/13.jpg', keywords: ['happy'] },
-  { id: 14, url: 'meme-img/14.jpg', keywords: ['happy'] },
-  { id: 15, url: 'meme-img/15.jpg', keywords: ['happy'] },
-  { id: 16, url: 'meme-img/16.jpg', keywords: ['happy'] },
-  { id: 17, url: 'meme-img/17.jpg', keywords: ['happy'] },
-  { id: 18, url: 'meme-img/18.jpg', keywords: ['happy'] },
+  { id: 1, url: 'meme-img/1.jpg', keywords: ['trump'] },
+  { id: 2, url: 'meme-img/2.jpg', keywords: ['dogs ', 'dog'] },
+  { id: 3, url: 'meme-img/3.jpg', keywords: ['baby', 'dog'] },
+  { id: 4, url: 'meme-img/4.jpg', keywords: ['cat', 'sleep'] },
+  { id: 5, url: 'meme-img/5.jpg', keywords: ['kid', 'mad', 'fist'] },
+  { id: 6, url: 'meme-img/6.jpg', keywords: ['sience', 'noshit'] },
+  { id: 7, url: 'meme-img/7.jpg', keywords: ['surprised', 'baby'] },
+  { id: 8, url: 'meme-img/8.jpg', keywords: ['really', 'noshit'] },
+  { id: 9, url: 'meme-img/9.jpg', keywords: ['baby', 'laughing', 'devious'] },
+  { id: 10, url: 'meme-img/10.jpg', keywords: ['obama', 'black', 'laughing'] },
+  { id: 11, url: 'meme-img/11.jpg', keywords: ['black', 'gay', 'happy'] },
+  { id: 12, url: 'meme-img/12.jpg', keywords: ['haim', 'zadik'] },
+  { id: 13, url: 'meme-img/13.jpg', keywords: ['cheers', 'leonardo'] },
+  { id: 14, url: 'meme-img/14.jpg', keywords: ['matrix', 'noshit'] },
+  { id: 15, url: 'meme-img/15.jpg', keywords: ['imtellingyou'] },
+  { id: 16, url: 'meme-img/16.jpg', keywords: ['noshit', 'laughing'] },
+  { id: 17, url: 'meme-img/17.jpg', keywords: ['putin', 'noshit'] },
+  { id: 18, url: 'meme-img/18.jpg', keywords: ['oneday'] },
 ];
 
 function initImages() {
   renderGallery(gImgs);
 }
 
-function getImgsForDisplay() {
-  var imgs = [];
-  return imgs;
-}
+// function getImgsForDisplay() {
+//   var imgs = [];
+//   return imgs;
+// }
 
 function findImgById(imgId) {
   for (var i = 0; i < gImgs.length; i++) {
@@ -164,4 +164,20 @@ function changeFont(val) {
   }
   console.log(gMeme.lines);
   // setFontFilter(val);
+}
+
+function setFilter(search) {
+  gImgs.forEach(function (img) {
+    var flag;
+    img.keywords.forEach(function (keyword) {
+      if (keyword.toLowerCase().startsWith(search.toLowerCase())) {
+        flag = true;
+      }
+      if (flag) {
+        img.passedSearch = true;
+      } else {
+        img.passedSearch = false;
+      }
+    });
+  });
 }
