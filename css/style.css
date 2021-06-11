@@ -4,22 +4,22 @@
 
 @font-face {
   font-family: Impact;
-  src: url(/Fonts/impact.ttf);
+  src: url(Fonts/impact.ttf);
 }
 
 @font-face {
   font-family: alfa;
-  src: url(/Fonts/AlfaSlabOne-Regular.ttf);
+  src: url(Fonts/AlfaSlabOne-Regular.ttf);
 }
 
 @font-face {
   font-family: Montserrat;
-  src: url(/Fonts/Montserrat-Black.ttf);
+  src: url(Fonts/Montserrat-Black.ttf);
 }
 
 @font-face {
   font-family: Montserrat-thin;
-  src: url(/Fonts/Montserrat-Thin.ttf);
+  src: url(Fonts/Montserrat-Thin.ttf);
 }
 
 body {
