@@ -106,7 +106,7 @@ function drawText(text, y, size, align, color, font, idx) {
   gCtx.fillText(text, posX, y);
   gCtx.strokeText(text, posX, y);
   if (selectedLine === idx) {
-    gCtx.strokeRect(30, y - size - 5, gElCanvas.width - 40, 30 + size);
+    gCtx.strokeRect(30, y - size - 5, gElCanvas.width - 60, 20 + size);
   }
 }
 
@@ -166,12 +166,14 @@ function selectImg(elImg) {
 
 function hideAndShow() {
   document.querySelector('.editor-container').style.display = 'flex';
-  document.querySelector('.gallery-imgs').style.display = 'none';
+  document.querySelector('.main-page').style.display = 'none';
+  // document.querySelector('.search-box').display = 'none';
 }
 
 function initPage() {
   document.querySelector('.editor-container').style.display = 'none';
-  document.querySelector('.gallery-imgs').style.display = 'grid';
+  document.querySelector('.main-page').style.display = 'block';
+  // document.querySelector('.search-box').style.display = 'flex';
 }
 
 function downloadCanvas(elLink) {

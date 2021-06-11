@@ -32,7 +32,7 @@
             </select>
             <button class="input-text-color">
                 <img src="ICONS/paint-board-and-brush.png">
-                <input type="color" name="text-color" oninput="getColor(this.value)">
+                <input type="color" name="text-color" class="color-input" oninput="getColor(this.value)">
             </button>
             <div class="first-btns">
                 <button class='func-btn' onclick="onDeleteLine()"><img class="trash-icon"
@@ -65,12 +65,16 @@
 
     </div>
 
-    <input type="search" name="search" placeholder="Search" oninput="onSetFilter(this.value)" autocomplete="off" />
 
 
 
-    <div class="gallery-imgs">
+    <div class="main-page">
+        <input type="search" name="search" class="search" placeholder="Search" oninput="onSetFilter(this.value)"
+            autocomplete="off" />
 
+        <div class="gallery-imgs">
+
+        </div>
     </div>
 
 
