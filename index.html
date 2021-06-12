@@ -69,9 +69,18 @@
 
 
     <div class="main-page">
-        <input type="search" name="search" class="search" placeholder="Search" oninput="onSetFilter(this.value)"
-            autocomplete="off" />
+        <div class="filter-links">
+            <input type="search" name="search" class="search" placeholder="Search" oninput="onSetFilter(this.value)"
+                autocomplete="off" />
+            <div class="links">
+                <a class="filter-link" href="#" onclick="onSetFilter('trump')">Trump</a>
+                <a class="filter-link" href="#" onclick="onSetFilter('dog')">Dog</a>
+                <a class="filter-link" href="#" onclick="onSetFilter('baby')">Baby</a>
+                <a class="filter-link" href="#" onclick="onSetFilter('laughing')">Laugh</a>
+                <a class="filter-link" href="#" onclick="onSetFilter('black')">Black</a>
+            </div>
 
+        </div>
         <div class="gallery-imgs">
 
         </div>
