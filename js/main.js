@@ -174,7 +174,8 @@ function hideAndShow() {
 function initPage() {
   document.querySelector('.editor-container').style.display = 'none';
   document.querySelector('.main-page').style.display = 'block';
-  // document.querySelector('.search-box').style.display = 'flex';
+  // document.querySelector('.search-box').style.display =
+  ('flex');
 }
 
 function downloadCanvas(elLink) {
