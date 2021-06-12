@@ -12,6 +12,7 @@ var currLine = getLinePos();
 function onInit() {
   gElCanvas = document.querySelector('.my-canvas');
   gCtx = gElCanvas.getContext('2d');
+  resizeCanvas();
   drawImg();
   setFilter('');
   initImages();
@@ -195,4 +196,10 @@ function onSetFont(font) {
 function onSetFilter(filter) {
   setFilter(filter);
   renderGallery();
+}
+
+function resizeCanvas() {
+  const elContainer = document.querySelector('.my-canvas');
+  gElCanvas.width = elContainer.offsetWidth;
+  gElCanvas.height = elContainer.offsetHeight;
 }
