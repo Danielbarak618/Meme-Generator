@@ -1,7 +1,5 @@
 'use strict';
 
-var text_title = 'ALALALA';
-
 var gElCanvas;
 var gCtx;
 var gImg = getImg();
@@ -168,8 +166,6 @@ function selectImg(elImg) {
 function hideAndShow() {
   document.querySelector('.editor-container').style.display = 'flex';
   document.querySelector('.main-page').style.display = 'none';
-
-  // document.querySelector('.main-footer').style.position = 'fixed';
 }
 
 function initPage() {
