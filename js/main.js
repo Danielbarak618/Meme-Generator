@@ -168,14 +168,13 @@ function selectImg(elImg) {
 function hideAndShow() {
   document.querySelector('.editor-container').style.display = 'flex';
   document.querySelector('.main-page').style.display = 'none';
-  // document.querySelector('.search-box').display = 'none';
+
+  // document.querySelector('.main-footer').style.position = 'fixed';
 }
 
 function initPage() {
   document.querySelector('.editor-container').style.display = 'none';
   document.querySelector('.main-page').style.display = 'block';
-  // document.querySelector('.search-box').style.display =
-  ('flex');
 }
 
 function downloadCanvas(elLink) {
@@ -203,4 +202,8 @@ function resizeCanvas() {
   const elContainer = document.querySelector('.my-canvas');
   gElCanvas.width = elContainer.offsetWidth;
   gElCanvas.height = elContainer.offsetHeight;
+}
+
+function toggleMenu() {
+  document.body.classList.toggle('menu-open');
 }
